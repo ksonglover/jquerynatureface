@@ -4,7 +4,7 @@
   "authors": [
     "KSonglover <ksonglover@gmail.com>"
   ],
-  "description": "a web gui",
+  "description": "a web gui framework",
   "main": "jquery.NatureFace.js",
   "moduleType": [
     "amd",
@@ -15,13 +15,13 @@
     "gui"
   ],
   "license": "CC",
-  "homepage": "jquerynatureface.ksonglover.com",
+  "homepage": "http://jquerynatureface.ksonglover.com",
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
   ],
-   "dependencies": {
+  "dependencies": {
     "jquery": "*"
   }
 }
