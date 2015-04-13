@@ -1,3 +1,3 @@
 # jquerynatureface
-a web gui frameword for Art
+a web gui framework for Art
 
