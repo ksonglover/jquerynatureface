@@ -4,7 +4,7 @@
  *
  * Copyright 2003~2015, jquerynatureFace.com
  *
- *  version : v2.15.13
+ *  version : v2.15.15
  *
  * 此程式主要用途為產生互動式web應用程式之操作介面。
  * 並搭配一些簡單的操作，就可完成一個應用程式互動介面。
