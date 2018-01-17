@@ -1,5 +1,5 @@
 # jquerynatureface
 a web gui framework for Art
 
-# homepage
+# Documents
 http://jquerynatureface.ksonglover.com
