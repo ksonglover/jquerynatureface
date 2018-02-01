@@ -2,7 +2,7 @@
  * jquery.NatureFace.js JavaScript Library 
  * http://jquerynatureface.ksonglover.com/
  *
- * Copyright 2003~2015, jquerynatureFace.com
+ * Copyright 2003~2018, jquerynatureFace.com
  *
  *  version : v2.15.19
  *

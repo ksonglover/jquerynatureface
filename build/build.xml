@@ -67,9 +67,9 @@
 <target name="release">
 	<echo message="build demo tarball..."/>
 	<exec executable="./release.sh"/>
-	<copy file="js/jquery.NatureFace.js" tofile="src/github/jquery.NatureFace.js"/>
+	<copy file="js/jquery.NatureFace.js" tofile="../jquery.NatureFace.js"/>
 	<echo message="---------------------------------------"/>
-	<echo message="Please use aptana Upload files ./downloads/NatureFace-demo.tar.gz and commit github repository...."/>
+	<echo message="Please commit to github repository...."/>
 	<echo message="---------------------------------------"/>
 </target>
 
