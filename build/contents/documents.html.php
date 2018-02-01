@@ -246,6 +246,10 @@ $(document).bind("target", function(event, natureface, layer){
 					<tr><td>href</td><td>不重覆的物件名稱id, 無設定時, 系統會自動加入一個隨機id，建議養成良好命名規則</td></tr>
 					<tr><td>shape</td><td>限「rect」值，目前NatureFace只支援rect形狀(方形)</td></tr>
 					<tr><td>class</td><td>物件類別, 目前支援的有 button(內定值), label, input（輸入框)。</td></tr>
+                    <tr><td>vt</td><td>指定top定位(可使用px,%,vh,vw,vmax,vmin), 設定後coords中coords[0]將忽略。</td></tr>
+                    <tr><td>vl</td><td>指定left定位(可使用px,%,vh,vw,vmax,vmin), 設定後coords中coords[1]將忽略。</td></tr>
+                    <tr><td>vw</td><td>指定寬度(可使用px,%,vh,vw,vmax,vmin), 設定後coords中coords[2]將忽略。</td></tr>
+                    <tr><td>vh</td><td>指定高度(可使用px,%,vh,vw,vmax,vmin), 設定後coords中coords[3]將忽略。</td></tr>
 					<tr><td>value</td><td>給予文字初值</td></tr>
 					<tr><td>target</td><td>流程控管, 按下元素時, 將跳至此層(layer)</td></tr>
 					<tr><td>layer</td><td>物件層次, 以逗號區隔, 空白表示永遠顯示</td></tr>

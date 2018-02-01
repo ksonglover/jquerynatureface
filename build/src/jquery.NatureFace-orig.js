@@ -335,17 +335,32 @@ var NatureFaceOrig = function(){
 					width:s.width,
 					height:s.height
 				});
-
+				
+				
 				var resize = function(){
+					//CSS3 新型態vh, vw欄位支援,使用者自定義top(vt), left(vl), width(vw), height(vh)
+					var usize = {
+						vt : 0,
+						vl : 0,
+						vw : 0,
+						vh : 0
+					};
+					
+					for(var k in usize){
+						if ((typeof $(this).attr(k)) != 'undefined'){
+							usize[k] = $(this).attr(k);
+						}
+					}
+					
 					var coords = {
-						top : parseFloat($(this).css("top")) * s.sizeH,
-			            left : parseFloat($(this).css("left")) * s.sizeW,
-			            width : parseFloat($(this).css("width")) * s.sizeW,
-			            height : parseFloat($(this).css("height")) * s.sizeH
+						top : usize["vt"] ? usize["vt"] : parseFloat($(this).css("top")) * s.sizeH,
+			            left : usize["vl"] ? usize["vl"] : parseFloat($(this).css("left")) * s.sizeW,
+			            width : usize["vw"] ? usize["vw"] : parseFloat($(this).css("width")) * s.sizeW,
+			            height : usize["vh"] ? usize["vh"] : parseFloat($(this).css("height")) * s.sizeH
 					};
 					
 					$.extend(coords, {
-						"line-height" : (coords.height -2) + "px",
+						"line-height" : usize["vh"] ? usize["vh"] : (coords.height -2) + "px",
 						"background-position" : (s.transparent ? "" : ("-" + coords.left + "px -" + coords.top + "px")),
 						"background-size" : (s.transparent ? "" : (s.width+"px " + s.height+"px"))
 					});
@@ -506,6 +521,19 @@ var NatureFaceOrig = function(){
 						$(this).attr("layer", $("#template", s.div).find("layer").attr("default")); 
 					}
 				}
+				//CSS3 新型態vh, vw欄位支援,使用者自定義top(vt), left(vl), width(vw), height(vh)
+				var usize = {
+					vt : 0,
+					vl : 0,
+					vw : 0,
+					vh : 0
+				};
+				
+				for(var k in usize){
+					if ((typeof $(this).attr(k)) != 'undefined'){
+						usize[k] = $(this).attr(k);
+					}
+				}
 	
 				var coords  = $(this).attr("coords").split(",");
 	
@@ -515,16 +543,16 @@ var NatureFaceOrig = function(){
 	            coords[2] = parseInt(coords[2] * s.sizeW);
 	            coords[3] = parseInt(coords[3] * s.sizeH);
 	
-				var oWidth  = (coords[2] - coords[0]) + "";
-				var oHeight = (coords[3] - coords[1]) + "";
+				var o = {
+					"top" : usize["vt"] ? usize["vt"] : coords[1] + "px",
+					"left" : usize["vl"] ? usize["vl"] : coords[0] + "px",
+					"width" : usize["vw"] ? usize["vw"] : (coords[2] - coords[0]) + "px",
+					"height" : usize["vh"] ? usize["vh"] : (coords[3] - coords[1]) + "px",
+					"line-height" : usize["vh"] ? usize["vh"] : (coords[3] - coords[1]-2) + "px"
+				};
 				
-				var elementCSS = $.extend({}, defaultCSS, {
+				var elementCSS = $.extend({}, defaultCSS, o, {
 					"position": "absolute",
-					"left": coords[0] + "px",
-					"top": coords[1] + "px",
-					"width": oWidth + "px",
-					"line-height": (oHeight-2) + "px", 
-					"height": oHeight + "px",
 					"overflow": "hidden", 
 					"z-index" : s.zindex++
 				});

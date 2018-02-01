@@ -3,7 +3,7 @@
 
 <property name="repository" value="http://jquerynatureface.ksonglover.com/"/>
 <property name="src" value="src"/>
-<property name="version" value="2.15.19"/>
+<property name="version" value="2.15.20"/>
 
 <target name="init">
     <get src="${repository}/downloads/yuicompressor-2.4.7.jar"	dest="${src}/tools/yuicompressor-2.4.7.jar" verbose="true" usetimestamp="true" />
