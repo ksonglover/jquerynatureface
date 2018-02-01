@@ -1,0 +1,32 @@
+{
+  "name": "jquerynatureface",
+  "authors": [
+    "KSonglover <ksonglover@gmail.com>"
+  ],
+  "description": "a web gui framework",
+  "main": "jquery.NatureFace.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "natureface",
+    "gui"
+  ],
+  "ignore": [
+        "bower.json",
+        "README.md"
+  ],
+  "license": "CC",
+  "homepage": "http://jquerynatureface.ksonglover.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "*"
+  }
+}
+
+

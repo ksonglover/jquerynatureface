@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<project name="natureface" default="help" basedir=".">
+
+<property name="repository" value="http://jquerynatureface.ksonglover.com/"/>
+<property name="src" value="src"/>
+<property name="version" value="2.15.19"/>
+
+<target name="init">
+    <get src="${repository}/downloads/yuicompressor-2.4.7.jar"	dest="${src}/tools/yuicompressor-2.4.7.jar" verbose="true" usetimestamp="true" />
+</target>
+
+<target name="compile">
+	<echo message="js convert tools(select 2,3,4 options) --> http://javascriptobfuscator.com/default.aspx"/>
+	<echo message="build jquery.NatureFace-3party.js..."/>
+	<concat destfile="${src}/jquery.NatureFace-3party.js" encoding="utf-8" outputencoding="utf-8">
+		<filelist files="${src}/iscroll.js"/>
+		<filelist files="${src}/jquery.cycle.all.2.74.js"/>
+		<filelist files="${src}/jquery.timers-1.2.js"/>
+		<filelist files="${src}/spin.min.js"/>
+		<filelist files="${src}/jquery.flash.js"/>
+		<filelist files="${src}/jquery.marquee.js"/>
+		<filelist files="${src}/jquery.jfeed.js"/>
+		<!--http://jmesnil.net/stomp-websocket/doc/-->
+		<!--https://raw.github.com/jmesnil/stomp-websocket/master/dist/stomp.js-->
+		<filelist files="${src}/stomp.js"/>
+		<filelist files="${src}/jquery.jplayer.min.js"/>
+		<filelist files="${src}/amq_jquery_adapter.js"/>
+		<filelist files="${src}/amq.js"/>
+		<filelist files="${src}/jquery.amq.js"/>
+		<filelist files="${src}/jquery.fullscreen-min.js"/>
+		<filelist files="${src}/jquery.qrcode.js"/>
+	</concat>
+	<echo message="build jquery.NatureFace.js..."/>
+	<copy file="${src}/jquery.NatureFace-orig.js" tofile="${src}/jquery.NatureFace-orig.without.console.js"/>
+	<replace file="${src}/jquery.NatureFace-orig.without.console.js" token="console.info(" value="//console.info("/>
+	<replace file="${src}/jquery.NatureFace-orig.without.console.js" token="console.log(" value="//console.log("/>
+	
+	<!--  yuicompressor  -->
+	<exec executable="java">
+		<arg value="-jar" />
+		<arg value="${src}/tools/yuicompressor-2.4.7.jar" />
+		<arg value="${src}/jquery.NatureFace-orig.without.console.js" />
+		<arg value="-o" />
+		<arg value="${src}/jquery.NatureFace-orig.without.console.js" />
+	</exec>
+	<delete file="${src}/tmp.${jqueryfile}"/>
+	
+	<!-- merge -->
+	
+	<concat destfile="src/jquery.NatureFace.js" force="no">
+	    <filelist dir="${src}" files="jquery.NatureFace.readme, jquery.NatureFace-orig.without.console.js"/>
+  	</concat>
+
+	<concat destfile="src/jquery.NatureFace-webbridge.js" force="no">
+	    <filelist dir="${src}" files="jquery.NatureFace.readme-webbridge, jquery.NatureFace-orig.without.console.js"/>
+  	</concat>
+	
+	<delete file="${src}/jquery.NatureFace-orig.without.console.js"/>
+	<copy file="${src}/jquery.NatureFace.js" tofile="js/jquery.NatureFace.js"/>
+	<copy file="${src}/jquery.NatureFace-webbridge.js" tofile="js/jquery.NatureFace-webbridge.js"/>
+	<copy file="${src}/jquery.NatureFace-3party.js" tofile="js/jquery.NatureFace-3party.js"/>
+	<replace file="js/jquery.NatureFace.js" token="@build_version@" value="${version}"/>
+	<echo message="Please append natureface/src folder to apache2, and to run it. ex: http://localhost/natureface/test.html"/>
+</target>
+
+
+<target name="release">
+	<echo message="build demo tarball..."/>
+	<exec executable="./release.sh"/>
+	<copy file="js/jquery.NatureFace.js" tofile="src/github/jquery.NatureFace.js"/>
+	<echo message="---------------------------------------"/>
+	<echo message="Please use aptana Upload files ./downloads/NatureFace-demo.tar.gz and commit github repository...."/>
+	<echo message="---------------------------------------"/>
+</target>
+
+
+<target name="help">
+	<echo message="ant init - download file."/>
+	<echo message="ant compile - build jquery.NatureFace.js and jquery.NatureFace-3party."/>
+	<echo message="ant release - copy file to history/."/>
+</target>
+</project>

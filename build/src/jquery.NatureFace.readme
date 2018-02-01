@@ -1,0 +1,15 @@
+/*!
+ * jquery.NatureFace.js JavaScript Library 
+ * http://jquerynatureface.ksonglover.com/
+ *
+ * Copyright 2003~2015, jquerynatureFace.com
+ *
+ *  version : v@build_version@
+ *
+ * 此程式主要用途為產生互動式web應用程式之操作介面。
+ * 並搭配一些簡單的操作，就可完成一個應用程式互動介面。
+ * 此程式「使用創用CC 姓名標示─非商業性─禁止改作 3.0 台灣 授權條款」
+ * 如做為商業用途，請利用Paypal進行付費授權，另外任何使用請保留此註記。
+ * 
+ */
+

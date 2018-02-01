@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<debug value="false"/>
+<!--使用HOME.png當成介面圖,其大小為480x800-->
+<img src="HELLO.png" border="0" usemap="#Map" width="480" height="800"/>
+<map name="Map" id="Map">
+<!--定素txtMessage元素，位於POPUP層，點擊後切換到HELLO層, 文字內容為Hello world.顏色為白色-->
+<area shape="rect" href="txtMessage" coords="120,82,396,272" target="HELLO" autofill layer="POPUP" value="Hello world." size="26" color="white" align="middlecenter"/>
+<!--定素btnHI元素，位於HELLO及POPUP層，點擊後切換到POPUP層, 按鈕的透明度效果為[0.9,0.7,0.5]-->
+<area shape="rect" href="btnHI" coords="46,286,222,376" target="POPUP" layer="HELLO,POPUP" opacity="0.9,0.7,0.5"/>
+<!--定素btnBack元素，位於HELLO及POPUP層，點擊後切換回HOME層, 按鈕的透明度效果為[0.9,0.7,0.5]-->
+<area shape="rect" href="btnBack" coords="267,286,439,377" target="HOME" layer="HELLO,POPUP" opacity="0.9,0.7,0.5"/>
+
+<!--使用table, 名為order, 製作四格-->
+<area shape="rect" href="lblGroup" align="middleleft" group="order" coords="46,386,130,405" rows="4" cols="2" layer="HELLO" style="white-space:nowrap; font-size:36px; color:white; text-shadow: black 0.1em 0.1em 0.2em" opacity="0.9,0.7,0.5"/>
+<!--使用table, 挷定order.left-->
+<area shape="rect" href="lblGroupLeft" coords="46,480,125,500" binding="order.left" value="Left" align="middlecenter" autofill style="white-space:nowrap; font-size:36px; color:white; text-shadow: black 0.1em 0.1em 0.2em" layer="HELLO" opacity="0.9,0.7,0.5"/>
+<!--使用table, 挷定order.right-->
+<area shape="rect" href="lblGroupRight" coords="130,480,210,500" binding="order.right" value="Right" autofill style="white-space:nowrap; font-size:36px; color:white; text-shadow: black 0.1em 0.1em 0.2em" layer="HELLO" opacity="0.9,0.7,0.5"/>
+
+<!--使用table, 名為order, 製作四格-->
+<area shape="rect" href="lblGroup2" align="middlecenter" group="orderList" coords="246,386,360,405" rows="4" cols="2" layer="HELLO" style="padding: -1px 10px; border-bottom: 1px solid #cccccc; white-space:nowrap; font-size:36px; color:white; text-shadow: black 0.1em 0.1em 0.2em" opacity="0.9,0.7,0.5"/>
+
+</map>
+</body>
+</html>

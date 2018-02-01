@@ -1,0 +1,126 @@
+/*
+
+此檔不再包裝進js中，僅做為個人備忘, 不再維護，參考 http://jquerynatureface.com/index.php?p=Documents
+
+
+Method : jQuery.NatureFace.script(url)
+
+	description: 動態載入脚本
+
+	parameters:
+
+	<url> : dynamic load javascript file (js)
+
+Method : jsonTable: function(group, data, subupdate(item, dataitem, currentpage, allpage), page)
+
+	description: 傳入json data ， 秀於group表格中 
+	
+	relation attrs: group, binding=(group).right, binding=(group).left
+	
+	parameters:
+	
+	<group> : group name
+	
+	<data> : [
+				{"id":"0001", "name":"可口可樂"}, 
+				{"id":"0002", "name":"咖啡"},
+				{"id":"0003", "name":"沙士1"},
+				{"id":"0004", "name":"沙士2"},
+				{"id":"0005", "name":"沙士3"},
+				{"id":"0006", "name":"沙士4"},
+				{"id":"0007", "name":"沙士5"},
+				{"id":"0008", "name":"沙士6"},
+				{"id":"0009", "name":"沙士7"},
+				{"id":"0010", "name":"沙士8"}
+			]
+	<subupdate> :  item update function (item, dataitem, currentpage, allpage)
+	
+	<page> : 欲顯示頁面，內定為最後一頁
+
+Method : jQuery.listing(group, url, sub_update(item, data), sub_updatepage(currentpage, allpage))
+
+	description: 觸控式list
+	
+	relation attrs: binding, group,
+	
+	parameters:
+
+	<group> : group name
+	<url> : http url (JSON Data), merge pageno , ex : url + pageno (use rest method)
+		ex : {"recordcount":22048,"pagecount":2205,"pagesize":10,"absolutepage":2,"absoluteposition":11,"items":[{"songno":"00011","songname":"\u9001\u5225"},{"songno":"00012","songname":"\u665A\u6B4C"},{"songno":"00013","songname":"\u91CE\u9910"},{"songno":"00014","songname":"\u8CC0\u5E74"},{"songno":"00015","songname":"\u6416\u8239"},{"songno":"00016","songname":"\u873B\u8713"},{"songno":"00017","songname":"\u6A05\u6A39"},{"songno":"00018","songname":"\u8774\u8776"},{"songno":"00019","songname":"\u8778\u725B"},{"songno":"00020","songname":"\u71D5\u5B50"}]}
+	<page> : absolute page
+	<sub_update> : item update function (itemobject, data)
+	<sub_updatepage> : page update function (currentpage, allpage)
+
+Method : jQuery.binding(group, url, sub_update(item, data), sub_clear(item), pageno)
+	
+	description: 表格式list
+
+	relation attrs: binding, group, cols, rows 
+	
+	parameters:
+
+	<group> : group name
+	<url> : http url (JSON Data), merge pageno , ex : url + pageno
+		ex : {"recordcount":22048,"pagecount":2205,"pagesize":10,"absolutepage":2,"absoluteposition":11,"items":[{"songno":"00011","songname":"\u9001\u5225"},{"songno":"00012","songname":"\u665A\u6B4C"},{"songno":"00013","songname":"\u91CE\u9910"},{"songno":"00014","songname":"\u8CC0\u5E74"},{"songno":"00015","songname":"\u6416\u8239"},{"songno":"00016","songname":"\u873B\u8713"},{"songno":"00017","songname":"\u6A05\u6A39"},{"songno":"00018","songname":"\u8774\u8776"},{"songno":"00019","songname":"\u8778\u725B"},{"songno":"00020","songname":"\u71D5\u5B50"}]}
+	<page> : absolute page
+	<sub_update> : item update function (itemobject, data)
+	<sub_clear> : item clear function (itemobject)
+	[pageno] : assign page no , defaul : 1
+
+Method : jQuery.NatureFace.marquee(url, function)
+
+	description: 跑馬燈
+
+	parameters:
+
+	<url> : http url (JSON Data or Other format(function))
+		response data : {"effect":"(fade|scrollRight|scrollLeft|scrollUp|scrollDown)", "speed":ms, "delay":ms, items:[{"msg":"Welcome to jquery.NatureFace.js"},{"msg":"Change GUI Design Method..."}]}
+	[function(data)] : json handler
+		data handler and use marqueeItem to add marquee items
+
+	global variables:	
+		$.NatureFace.marquee.effect
+		$.NatureFace.marquee.speed
+		$.NatureFace.marquee.delay
+
+
+Method : jQuery.NatureFace.marqueeItem(msg)
+
+	description: 跑馬燈項目
+
+	parameters:
+
+	<msg> : add Marquee item
+
+Method : jQuery.NatureFace.loading(b, target, opt)
+
+	description: 讀取中動態小圖
+
+	parameters:
+
+	<b> : true/false
+	<target> : 存放動態載入的div容器
+	[opt] : see also : http://fgnass.github.com/spin.js/
+		{
+		  lines: 13, // The number of lines to draw
+		  length: 7, // The length of each line
+		  width: 4, // The line thickness
+		  radius: 10, // The radius of the inner circle
+		  corners: 1, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  color: '#ffff00', // #rgb or #rrggbb
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2000000000, // The z-index (defaults to 2000000000)
+		  top: 'auto', // Top position relative to parent in px
+		  left: 'auto' // Left position relative to parent in px
+		}
+
+Method : jQuery.NatureFace.istouch()
+
+	description: 判斷是否為觸控, 如init時強制指定時, 即取得強制性值, 否則為系統值
+*/
