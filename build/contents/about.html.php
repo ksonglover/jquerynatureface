@@ -51,7 +51,7 @@
 					<tr><td><a href="https://github.com/ksonglover/jquerynatureface/blob/v2.15.15/jquery.NatureFace.js">2.15.16</a></td><td>1. 修正$.fn.text改寫動作錯誤及簡化text動作,並去caption<br>2. 新增 transparent 參數瘦身</td><td>2015/12/18</td></tr>
 					<tr><td><a href="https://github.com/ksonglover/jquerynatureface/blob/v2.15.17/jquery.NatureFace.js">2.15.17</a></td><td>修正autofill()</td><td>2016/10/18</td></tr>
 					<tr><td><a href="https://github.com/ksonglover/jquerynatureface/blob/v2.15.19/jquery.NatureFace.js">2.15.19</a></td><td>修正refresh()</td><td>2018/01/12</td></tr>
-					<tr><td><a href="https://github.com/ksonglover/jquerynatureface/blob/v2.15.20/jquery.NatureFace.js">2.15.20</a></td><td>支援css新單位(vh,vw,vmax,vmin)</td><td>2018/02/1</td></tr>
+					<tr><td><a href="https://github.com/ksonglover/jquerynatureface/blob/v2.15.20/jquery.NatureFace.js">2.15.20</a></td><td>新增vt,vl,vh,vw欄位屬性，同時支援css新單位(vh,vw,vmax,vmin)</td><td>2018/02/1</td></tr>
 				</tbody>
 				</table></p>
 			</div>
