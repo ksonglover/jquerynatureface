@@ -375,7 +375,7 @@ var require = {
 };
 
 //即可使用natureface模組
-define(["jquery", "natrueface"], function($, natureface){
+define(["jquery", "natureface"], function($, natureface){
 	//do something;
 });
 </pre>
